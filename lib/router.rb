@@ -11,20 +11,24 @@ class Router
 	def perform #rappelle-toi que l'on fait "Router.new.perform" dans app.rb => après initialize, on définit perform.
 		puts "BIENVENUE DANS THE GOSSIP PROJECT"
 		initialize
+		
 		while true
+			puts
 			#on affiche le menu
 			puts "Tu veux faire quoi BG ?"
 			puts "1. Je veux créer un gossip\n2. Afficher tous les potins\n3. Supprimer un potin\n4. Je veux quitter l'app"
 			print "> "
 			choice = gets.chomp.to_i #on attend le choix de l'utilisateur
-			
+
 			case choice #en fonction du choix
 			when 1
 				puts "Tu as choisi de créer un gossip"
 				@controller.create_gossip
 			when 2
+				puts "Tu as choisis d'afficher la liste de tous les gossips"
 				@controller.index_gossips
 			when 3
+				puts "Tu as choisis de supprimer un potin"
 				@controller.destroy
 			when 4
 				puts "À bientôt !"

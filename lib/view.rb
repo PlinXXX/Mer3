@@ -13,19 +13,12 @@ class View
 	end
 
 
-	def index_gossips
-		potin_csv = CSV.open("db/gossip.csv", "r") 
-		puts "Voici la liste des potins répertoriés:"
-    potin_csv.each do |line| 
-    	print line
-    	puts
-    end
-    puts
-	end
-
-
 	def index_gossips(gossips)
-		gossips.each { |potin| puts potin }
+		i = 1
+		gossips.each { |potin| 
+			puts "potin#{i} : #{potin.author}, #{potin.content}" 
+			i += 1
+		}
 	end
 	
 end

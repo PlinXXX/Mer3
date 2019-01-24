@@ -33,7 +33,25 @@ class Controller
 
 
 	def destroy
-		
-	end
+
+		puts "Quel potin veux-tu supprimer ? (1, 2, 3, ...)"
+		print "> "
+		choice = gets.chomp.to_i
+
+		gossips = Gossip.all
+
+		gossips.delete_at(choice-1)
+		#gossips.each { |gossip| puts gossip.inspect } 
+		i = 0
+		gossips.each { |gossip| 
+			gossip.destroy if i == 0
+			gossip.save if i != 0 
+			i += 1
+		}
+
+		puts "potin #{choice} supprimé !"
+
+	end #destroy
 
 end
+

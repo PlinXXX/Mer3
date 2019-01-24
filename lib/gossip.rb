@@ -14,6 +14,12 @@ class Gossip
 	end
 
 
+	def destroy
+		h = {@author => @content}
+    CSV.open("db/gossip.csv", "w+") { |csv| h.to_a.each { |name| csv << name } }
+	end
+
+
 	def self.all
 		all_gossips = [] # création d'une array vide qui s'appelle all_gossips
 		potins_csv = CSV.open("db/gossip.csv", "r") 
